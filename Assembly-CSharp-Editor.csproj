@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{45CC7289-3B31-2D55-114D-595207C7425A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_1;UNITY_5_5;UNITY_5;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VIDEO;ENABLE_VR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;CROSS_PLATFORM_INPUT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:/Program Files/Unity/unity5.51f1/Editor/Data/Managed/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>C:/Program Files/Unity/unity5.51f1/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Examples\Scripts\InventorySystem\Editor\InvDatabaseInspector.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Examples\Scripts\InventorySystem\Editor\InvFindItem.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\ActiveAnimationEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\BMFontReader.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\ComponentSelector.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\EventDelegateDrawer.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\EventDelegateEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\FreeType.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\NGUIContextMenu.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\NGUIEditorExtensions.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\NGUIEditorTools.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\NGUIHandles.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\NGUIHelp.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\NGUIJson.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\NGUIMenu.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\NGUISelectionTools.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\NGUISettings.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\NGUISnap.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\NGUITransformInspector.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\PropertyBindingEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\PropertyReferenceDrawer.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\SpriteSelector.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\TweenAlphaEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\TweenColorEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\TweenFOVEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\TweenHeightEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\TweenOrthoSizeEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\TweenPositionEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\TweenRotationEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\TweenScaleEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\TweenTransformEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\TweenVolumeEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\TweenWidthEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\TypewriterEffectEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UI2DSpriteEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIAnchorEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIAtlasInspector.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIAtlasMaker.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIBasicSpriteEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIButtonColorEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIButtonEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIButtonKeysEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIButtonMessageEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UICameraEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UICameraTool.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIColorPickerEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UICreateNewUIWizard.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UICreateWidgetWizard.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIDragObjectEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIDrawCallInspector.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIDrawCallViewer.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIEventTriggerEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIFontInspector.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIFontMaker.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIForwardEventsEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIGridEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIImageButtonInspector.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIInputEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIKeyNavigationEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UILabelInspector.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UILocalizeEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIPanelInspector.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIPanelTool.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIPlayAnimationEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIPlayTweenEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIPopupListInspector.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIPrefabTool.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIProgressBarEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIRectEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIRootEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIScrollBarEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIScrollViewEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UISliderEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UISnapshotPointEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UISpriteAnimationInspector.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UISpriteInspector.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIStretchEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UITableEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UITextureInspector.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UITexturePacker.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIToggleInspector.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UITweenerEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIWidgetContainerEditor.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIWidgetInspector.cs" />
+     <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\UIWrapContentEditor.cs" />
+     <None Include="Assets\Scripts\NGUI\Examples\Scenes\Example 7 - Scroll View (Panel).unity" />
+     <None Include="Assets\Scripts\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
+     <None Include="Assets\Scripts\NGUI\ReadMe - 3.9.2.txt" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Transparent Masked 1.shader" />
+     <None Include="Assets\Scripts\NGUI\Examples\Scenes\Example 8 - Scroll View (Camera).unity" />
+     <None Include="Assets\Scripts\NGUI\Examples\Scenes\Tutorial 3.unity" />
+     <None Include="Assets\Scripts\NGUI\Examples\Scenes\Example 12 - Chat Window.unity" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Text 2.shader" />
+     <None Include="Assets\Plugins\DOTween\DOTween46.xml" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Transparent Masked 2.shader" />
+     <None Include="Assets\Scripts\NGUI\Examples\Models\Orc\Orc Skin.shader" />
+     <None Include="Assets\UGUI无线滚动\111.unity" />
+     <None Include="Assets\Scripts\NGUI\Examples\Atlases\Wooden\Arimo20.txt" />
+     <None Include="Assets\Scripts\NGUI\Examples\Atlases\Wooden\Arimo14.txt" />
+     <None Include="Assets\NGUI无线滚动.unity" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Text 1.shader" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Premultiplied Colored (TextureClip).shader" />
+     <None Include="Assets\PureMVC  + UI树管理界面关系.unity" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed) (TextureClip).shader" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Transparent Colored 2.shader" />
+     <None Include="Assets\Standard Assets\Fonts\OpenSans\OpenSansRegular.ttf" />
+     <None Include="Assets\Scripts\NGUI\Examples\Shaders\Unlit - Masked Colored.shader" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 3.shader" />
+     <None Include="Assets\Scripts\NGUI\Examples\Atlases\Wooden\Arimo18.txt" />
+     <None Include="Assets\Scripts\NGUI\Examples\Scenes\Tutorial 6.unity" />
+     <None Include="Assets\Standard Assets\Fonts\OpenSans\OpenSansLight.ttf" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Transparent Colored (TextureClip).shader" />
+     <None Include="Assets\Scripts\NGUI\Examples\Atlases\SciFi\SciFi Font - Header.txt" />
+     <None Include="Assets\Scripts\NGUI\Examples\Scenes\Example 11 - Drag &amp; Drop.unity" />
+     <None Include="Assets\Scripts\NGUI\Examples\Scenes\Tutorial 4.unity" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Transparent Masked 3.shader" />
+     <None Include="Assets\Scripts\NGUI\Examples\Scenes\Example 14 - Endless Scroll Views.unity" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Transparent Colored 1.shader" />
+     <None Include="Assets\Scripts\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Transparent Colored 3.shader" />
+     <None Include="Assets\Standard Assets\Fonts\OpenSans\OpenSansBold.ttf" />
+     <None Include="Assets\Plugins\DOTween\readme.txt" />
+     <None Include="Assets\Scripts\NGUI\Examples\Atlases\Refractive\Refractive Font - Normal.txt" />
+     <None Include="Assets\Plugins\DOTween\DOTween50.xml" />
+     <None Include="Assets\Scripts\NGUI\Examples\Scenes\Example 0 - Control Widgets.unity" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 2.shader" />
+     <None Include="Assets\Scripts\NGUI\Examples\Scenes\Tutorial 7.unity" />
+     <None Include="Assets\Scripts\NGUI\Examples\Scenes\Example 1 - Anchors.unity" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Text 3.shader" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
+     <None Include="Assets\Scripts\NGUI\Examples\Scenes\Example 5 - Lights and Refraction.unity" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Transparent Packed 1.shader" />
+     <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 1.shader" />
+     <None Include="Assets\Scripts\NGUI\Examples\Scenes\Example 4 - Controller Input.unity" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Premultiplied Colored.shader" />
+     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
+     <None Include="Assets\Standard Assets\Fonts\OpenSans\OpenSansSemibold.ttf" />
+     <None Include="Assets\Scripts\NGUI\Examples\Scenes\Example 10 - Localization.unity" />
+     <None Include="Assets\Scripts\NGUI\Examples\Scenes\Example 6 - Draggable Window.unity" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Text.shader" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
+     <None Include="Assets\Scripts\NGUI\Examples\Scenes\Example 13 - Tabs.unity" />
+     <None Include="Assets\Scripts\NGUI\Examples\Scenes\Tutorial 5.unity" />
+     <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
+     <None Include="Assets\Scripts\NGUI\Examples\Scenes\Example 3 - Menu.unity" />
+     <None Include="Assets\Plugins\DOTween\DOTween43.xml" />
+     <None Include="Assets\Scripts\NGUI\Examples\Shaders\Unlit - Additive Colored.shader" />
+     <None Include="Assets\Standard Assets\Fonts\Unipix.ttf" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Transparent Masked.shader" />
+     <None Include="Assets\Scripts\NGUI\Examples\Scenes\Example 9 - Quest Log.unity" />
+     <None Include="Assets\Scripts\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
+     <None Include="Assets\Scripts\NGUI\Examples\Shaders\Refractive.shader" />
+     <None Include="Assets\Scripts\NGUI\Examples\Scenes\Example X - Character.unity" />
+     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
+     <None Include="Assets\Scripts\NGUI\Resources\Shaders\Unlit - Text (TextureClip).shader" />
+     <None Include="Assets\UGUI菜单列表.unity" />
+     <None Include="Assets\Scripts\NGUI\Examples\Shaders\Unlit - Depth.shader" />
+     <None Include="Assets\Scripts\NGUI\Examples\Atlases\SciFi\SciFi Font - Normal.txt" />
+     <None Include="Assets\Scripts\NGUI\Examples\Scenes\Tutorial 2.unity" />
+     <None Include="Assets\Scripts\NGUI\Examples\Scenes\Tutorial 1.unity" />
+     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
+     <None Include="Assets\Scripts\NGUI\Examples\Scenes\Example 2 - Interaction.unity" />
+     <None Include="Assets\Scripts\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
+     <None Include="Assets\Scripts\NGUI\Examples\Resources\Localization.txt" />
+ <Reference Include="UnityEditor.Advertisements">
+ <HintPath>C:/Program Files/Unity/unity5.51f1/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
+ </Reference>
+ <Reference Include="nunit.framework">
+ <HintPath>C:/Program Files/Unity/unity5.51f1/Editor/Data/UnityExtensions/Unity/EditorTestsRunner/Editor/nunit.framework.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.EditorTestsRunner">
+ <HintPath>C:/Program Files/Unity/unity5.51f1/Editor/Data/UnityExtensions/Unity/EditorTestsRunner/Editor/UnityEditor.EditorTestsRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity/unity5.51f1/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>C:/Program Files/Unity/unity5.51f1/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity/unity5.51f1/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Networking">
+ <HintPath>C:/Program Files/Unity/unity5.51f1/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.PlaymodeTestsRunner">
+ <HintPath>C:/Program Files/Unity/unity5.51f1/Editor/Data/UnityExtensions/Unity/PlaymodeTestsRunner/Editor/UnityEditor.PlaymodeTestsRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.PlaymodeTestsRunner">
+ <HintPath>C:/Program Files/Unity/unity5.51f1/Editor/Data/UnityExtensions/Unity/PlaymodeTestsRunner/UnityEngine.PlaymodeTestsRunner.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.TreeEditor">
+ <HintPath>C:/Program Files/Unity/unity5.51f1/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/unity5.51f1/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Analytics">
+ <HintPath>C:/Program Files/Unity/unity5.51f1/Editor/Data/UnityExtensions/Unity/UnityAnalytics/Editor/UnityEditor.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.HoloLens">
+ <HintPath>C:/Program Files/Unity/unity5.51f1/Editor/Data/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.HoloLens">
+ <HintPath>C:/Program Files/Unity/unity5.51f1/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.VR">
+ <HintPath>C:/Program Files/Unity/unity5.51f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.VR">
+ <HintPath>C:/Program Files/Unity/unity5.51f1/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.ProtocolBuffers">
+ <HintPath>E:/GitHub/Tuimoil/Assets/Plugins/Protobuf/Google.ProtocolBuffers.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.ProtocolBuffers.Serialization">
+ <HintPath>E:/GitHub/Tuimoil/Assets/Plugins/Protobuf/Google.ProtocolBuffers.Serialization.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>C:/Program Files/Unity/unity5.51f1/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+ <HintPath>C:/Program Files/Unity/unity5.51f1/Editor/Data/PlaybackEngines/windowsstandalonesupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween50">
+ <HintPath>E:/GitHub/Tuimoil/Assets/Plugins/DOTween/DOTween50.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTweenEditor">
+ <HintPath>E:/GitHub/Tuimoil/Assets/Plugins/DOTween/Editor/DOTweenEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween46">
+ <HintPath>E:/GitHub/Tuimoil/Assets/Plugins/DOTween/DOTween46.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween43">
+ <HintPath>E:/GitHub/Tuimoil/Assets/Plugins/DOTween/DOTween43.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>E:/GitHub/Tuimoil/Assets/Plugins/DOTween/DOTween.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{6777E340-26F0-DA60-B1AA-CC7743373E93}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{704E03E9-B040-C311-2A86-D1B9C4D44CBB}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
