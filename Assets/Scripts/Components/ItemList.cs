@@ -25,7 +25,7 @@ public class ItemList : MonoBehaviour
         {
             itemDic.Add ( item.item, item.ceil );
         }
-        itemList = null;
+        //itemList = null;
     }
     // Use this for initialization
     void Start()

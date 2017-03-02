@@ -142,7 +142,7 @@ MonoBehaviour:
   img: {fileID: 97396404}
   rect: {fileID: 0}
   sv: 0
-  v: 0
+  positonValue: 0
 --- !u!114 &97396404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,7 +301,7 @@ MonoBehaviour:
   img: {fileID: 177743286}
   rect: {fileID: 0}
   sv: 0
-  v: 0
+  positonValue: 0
 --- !u!114 &177743286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,7 +386,7 @@ MonoBehaviour:
   img: {fileID: 397921173}
   rect: {fileID: 0}
   sv: 0
-  v: 0
+  positonValue: 0
 --- !u!114 &397921173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -902,6 +902,11 @@ MonoBehaviour:
   VMin: 0.1
   VMax: 0.9
   Width: 1000
+  AddV: 0
+  Vk: 0
+  CurrentV: 0
+  Vtotal: 0
+  VT: 0
 --- !u!114 &958746425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -998,7 +1003,7 @@ MonoBehaviour:
   img: {fileID: 1098209128}
   rect: {fileID: 0}
   sv: 0
-  v: 0
+  positonValue: 0
 --- !u!114 &1098209128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1129,7 +1134,7 @@ GameObject:
   - component: {fileID: 1218225483}
   - component: {fileID: 1218225482}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: LoggerTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1215,7 +1220,7 @@ MonoBehaviour:
   img: {fileID: 1466920787}
   rect: {fileID: 0}
   sv: 0
-  v: 0
+  positonValue: 0
 --- !u!114 &1466920787
 MonoBehaviour:
   m_ObjectHideFlags: 0

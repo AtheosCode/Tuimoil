@@ -3,8 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_Control_ScrollFlow : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
-{
+public class UI_Control_ScrollFlow : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler {
     /// <summary>
     /// 动画状态
     /// </summary>
@@ -41,68 +40,61 @@ public class UI_Control_ScrollFlow : MonoBehaviour, IBeginDragHandler, IDragHand
     /// </summary>
     public float Width = 500;
     private float _v1 = 0, _v2 = 0;
+    [SerializeField]
     private float AddV = 0, Vk = 0, CurrentV = 0, Vtotal = 0, VT = 0;
+    /// <summary>
+    /// 拖拽当前偏移量
+    /// </summary>
+    private Vector2 dragOffset;
+    /// <summary>
+    /// 拖拽起点位置
+    /// </summary>
+    private Vector2 dragOrigin;
     private List<UI_Control_ScrollFlow_Item> GotoFirstItems = new List<UI_Control_ScrollFlow_Item>(), GotoLaserItems = new List<UI_Control_ScrollFlow_Item>();
     private int index = 0;
     private List<UI_Control_ScrollFlow_Item> SortValues = new List<UI_Control_ScrollFlow_Item>();
-    /// <summary>
-    /// 计算值
-    /// </summary>
-    private Vector2 start_point, add_vect;
     private float start_time = 0, running_time = 0;
     private float v = 0;
 
     public event CallBack<UI_Control_ScrollFlow_Item> MoveEnd;
 
-    public void AnimToEnd(float k)
-    {
+    public void AnimToEnd(float k) {
         AddV = k;
-        if (AddV > 0) { Vk = 1; }
-        else if (AddV < 0) { Vk = -1; }
-        else
-        {
+        if (AddV > 0) {
+            Vk = 1;
+        } else if (AddV < 0) {
+            Vk = -1;
+        } else {
             return;
         }
         Vtotal = 0;
         _anim = true;
     }
 
-    public void Check(float _v)
-    {
-        if (_v < 0)
-        {//向左运动
-            for (int i = 0; i < Items.Count; i++)
-            {
-                if (Items[i].v < (VMin - AddValue / 2))
-                {
+    public void Check(float _v) {
+        if (_v < 0) {//向左运动
+            for (int i = 0; i < Items.Count; i++) {
+                if (Items[i].positonValue < (VMin - AddValue / 2)) {
                     GotoLaserItems.Add(Items[i]);
                 }
             }
-            if (GotoLaserItems.Count > 0)
-            {
-                for (int i = 0; i < GotoLaserItems.Count; i++)
-                {
-                    GotoLaserItems[i].v = Items[Items.Count - 1].v + AddValue;
+            if (GotoLaserItems.Count > 0) {
+                for (int i = 0; i < GotoLaserItems.Count; i++) {
+                    GotoLaserItems[i].positonValue = Items[Items.Count - 1].positonValue + AddValue;
                     Items.Remove(GotoLaserItems[i]);
                     Items.Add(GotoLaserItems[i]);
                 }
                 GotoLaserItems.Clear();
             }
-        }
-        else if (_v > 0)
-        {//向右运动，需要把右边的放到前面来
-            for (int i = Items.Count - 1; i > 0; i--)
-            {
-                if (Items[i].v >= VMax)
-                {
+        } else if (_v > 0) {//向右运动，需要把右边的放到前面来
+            for (int i = Items.Count - 1; i > 0; i--) {
+                if (Items[i].positonValue >= VMax) {
                     GotoFirstItems.Add(Items[i]);
                 }
             }
-            if (GotoFirstItems.Count > 0)
-            {
-                for (int i = 0; i < GotoFirstItems.Count; i++)
-                {
-                    GotoFirstItems[i].v = Items[0].v - AddValue;
+            if (GotoFirstItems.Count > 0) {
+                for (int i = 0; i < GotoFirstItems.Count; i++) {
+                    GotoFirstItems[i].positonValue = Items[0].positonValue - AddValue;
                     Items.Remove(GotoFirstItems[i]);
                     Items.Insert(0, GotoFirstItems[i]);
                 }
@@ -111,32 +103,106 @@ public class UI_Control_ScrollFlow : MonoBehaviour, IBeginDragHandler, IDragHand
         }
     }
 
-    public float GetApa(float v)
-    {
+    public float GetApa(float v) {
         return ApaCurve.Evaluate(v);
     }
 
-    public float GetPosition(float v)
-    {
+    public float GetPosition(float v) {
         return PositionCurve.Evaluate(v) * Width;
     }
 
-    public float GetScale(float v)
-    {
+    public float GetScale(float v) {
         return ScaleCurve.Evaluate(v) * MaxScale;
     }
 
-    public void LateUpdate()
-    {
-        for (int i = 0; i < Items.Count; i++)
-        {
-            if (Items[i].v >= 0.1f && Items[i].v <= 0.9f)
-            {
+    public void Refresh() {
+        for (int i = 0; i < Rect.childCount; i++) {
+            Transform tran = Rect.GetChild(i);
+            UI_Control_ScrollFlow_Item item = tran.GetComponent<UI_Control_ScrollFlow_Item>();
+            if (item != null) {
+                item.transform.GetChild(0).GetComponent<Text>().text = i.ToString();
+
+                Items.Add(item);
+                item.Init(this);
+                item.Drag(StartValue + i * AddValue);
+                if (item.positonValue - 0.5 < 0.05f) {
+                    Current = Items[i];
+                }
+            }
+        }
+        if (Rect.childCount < 5) {
+            VMax = StartValue + 4 * AddValue;
+        } else {
+            VMax = StartValue + (Rect.childCount - 1) * AddValue;
+        }
+        if (MoveEnd != null) {
+            MoveEnd(Current);
+        }
+    }
+
+    public void ToLaster(UI_Control_ScrollFlow_Item item) {
+        item.positonValue = Items[Items.Count - 1].positonValue + AddValue;
+        Items.Remove(item);
+        Items.Add(item);
+    }
+
+    #region 事件处理
+
+    public void OnBeginDrag(PointerEventData eventData) {
+        dragOrigin = eventData.position;
+        dragOffset = Vector3.zero;
+        _anim = false;
+    }
+
+    public void OnDrag(PointerEventData eventData) {
+        dragOffset = eventData.position - dragOrigin;
+        v = eventData.delta.x * 1.00f / Width;
+        for (int i = 0; i < Items.Count; i++) {
+            Items[i].Drag(v);
+        }
+        Check(v);
+    }
+
+    public void OnEndDrag(PointerEventData eventData) {
+        float k = 0, v1;
+        for (int i = 0; i < Items.Count; i++) {
+            if (Items[i].positonValue >= VMin) {
+                v1 = (Items[i].positonValue - VMin) % AddValue;
+                //Debug.Log(v1 + "--" + NextAddValue);
+                if (dragOffset.x >= 0) {
+                    k = AddValue - v1;
+                } else {
+                    k = v1 * -1;
+                }
+                break;
+            }
+        }
+        dragOffset = Vector3.zero;
+        AnimToEnd(k);
+    }
+
+    public void OnPointerClick(PointerEventData eventData) {
+        Debug.Log("OnPointerClick:" + eventData.pointerPressRaycast.gameObject);
+        if (dragOffset.sqrMagnitude <= 1) {
+            Debug.Log("============OnPointerClickOK============");
+            UI_Control_ScrollFlow_Item script = eventData.pointerPressRaycast.gameObject.GetComponent<UI_Control_ScrollFlow_Item>();
+            if (script != null) {
+                float k = script.positonValue;
+                k = 0.5f - k;
+                AnimToEnd(k);
+            }
+        }
+    }
+    #endregion 事件处理
+
+    #region update
+
+    public void LateUpdate() {
+        for (int i = 0; i < Items.Count; i++) {
+            if (Items[i].positonValue >= 0.1f && Items[i].positonValue <= 0.9f) {
                 index = 0;
-                for (int j = 0; j < SortValues.Count; j++)
-                {
-                    if (Items[i].sv >= SortValues[j].sv)
-                    {
+                for (int j = 0; j < SortValues.Count; j++) {
+                    if (Items[i].sv >= SortValues[j].sv) {
                         index = j + 1;
                     }
                 }
@@ -145,135 +211,32 @@ public class UI_Control_ScrollFlow : MonoBehaviour, IBeginDragHandler, IDragHand
             }
         }
 
-        for (int k = 0; k < SortValues.Count; k++)
-        {
+        for (int k = 0; k < SortValues.Count; k++) {
             SortValues[k].rect.SetSiblingIndex(k);
         }
         SortValues.Clear();
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        start_point = eventData.position;
-        add_vect = Vector3.zero;
-        _anim = false;
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        add_vect = eventData.position - start_point;
-        v = eventData.delta.x * 1.00f / Width;
-        for (int i = 0; i < Items.Count; i++)
-        {
-            Items[i].Drag(v);
-        }
-        Check(v);
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        float k = 0, v1;
-        for (int i = 0; i < Items.Count; i++)
-        {
-            if (Items[i].v >= VMin)
-            {
-                v1 = (Items[i].v - VMin) % AddValue;
-                //Debug.Log(v1 + "--" + NextAddValue);
-                if (add_vect.x >= 0)
-                {
-                    k = AddValue - v1;
-                }
-                else
-                {
-                    k = v1 * -1;
-                }
-                break;
-            }
-        }
-        add_vect = Vector3.zero;
-        AnimToEnd(k);
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        Debug.Log("OnPointerClick:" + eventData.pointerPressRaycast.gameObject);
-        if (add_vect.sqrMagnitude <= 1)
-        {
-            Debug.Log("============OnPointerClickOK============");
-            UI_Control_ScrollFlow_Item script = eventData.pointerPressRaycast.gameObject.GetComponent<UI_Control_ScrollFlow_Item>();
-            if (script != null)
-            {
-                float k = script.v;
-                k = 0.5f - k;
-                AnimToEnd(k);
-            }
-        }
-    }
-
-    public void Refresh()
-    {
-        for (int i = 0; i < Rect.childCount; i++)
-        {
-            Transform tran = Rect.GetChild(i);
-            UI_Control_ScrollFlow_Item item = tran.GetComponent<UI_Control_ScrollFlow_Item>();
-            if (item != null)
-            {
-                item.transform.GetChild(0).GetComponent<Text>().text = i.ToString();
-
-                Items.Add(item);
-                item.Init(this);
-                item.Drag(StartValue + i * AddValue);
-                if (item.v - 0.5 < 0.05f)
-                {
-                    Current = Items[i];
-                }
-            }
-        }
-        if (Rect.childCount < 5)
-        {
-            VMax = StartValue + 4 * AddValue;
-        }
-        else
-        {
-            VMax = StartValue + (Rect.childCount - 1) * AddValue;
-        }
-        if (MoveEnd != null)
-        {
-            MoveEnd(Current);
-        }
-    }
-
-    public void ToLaster(UI_Control_ScrollFlow_Item item)
-    {
-        item.v = Items[Items.Count - 1].v + AddValue;
-        Items.Remove(item);
-        Items.Add(item);
-    }
-
-    private void Update()
-    {
-        if (_anim)
-        {
+    public void Update() {
+        if (_anim) { 
             CurrentV = Time.deltaTime * _anim_speed * Vk;
             VT = Vtotal + CurrentV;
             if (Vk > 0 && VT >= AddV) { _anim = false; CurrentV = AddV - Vtotal; }
             if (Vk < 0 && VT <= AddV) { _anim = false; CurrentV = AddV - Vtotal; }
             //==============
-            for (int i = 0; i < Items.Count; i++)
-            {
+            for (int i = 0; i < Items.Count; i++) {
                 Items[i].Drag(CurrentV);
-                if (Items[i].v - 0.5 < 0.05f)
-                {
+                if (Items[i].positonValue - 0.5 < 0.05f) {
                     Current = Items[i];
                 }
             }
             Check(CurrentV);
             Vtotal = VT;
 
-            if (!_anim)
-            {
+            if (!_anim) {
                 if (MoveEnd != null) { MoveEnd(Current); }
             }
         }
     }
+    #endregion update
 }

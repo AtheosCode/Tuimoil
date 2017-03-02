@@ -1,5 +1,4 @@
 ﻿using PureMVC.Interfaces;
-using PureMVC.Patterns;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,15 +9,6 @@ using UnityEngine;
 [System.Serializable]
 public class NodeInfo {
     #region 编辑器使用
-    [Space(10)]
-    [Tooltip("中介器类名")]
-    public string mediatorName;
-    [Space(10)]
-    [Tooltip("父节点类型")]
-    public GlobalDefine.PanelType parentType;
-    [Space(10)]
-    [Tooltip("节点类型")]
-    public GlobalDefine.PanelType type = GlobalDefine.PanelType.Default;
     /// <summary>
     /// 是否缓存（关闭的时候是隐藏还是销毁）
     /// </summary>
@@ -44,6 +34,12 @@ public class NodeInfo {
     /// PureMVC 中介器
     /// </summary>
     public IMediator mediator;
+    [Space(10)]
+    [Tooltip("中介器类名")]
+    public string mediatorName;
+    [Space(10)]
+    [Tooltip("父节点类型")]
+    public GlobalDefine.PanelType parentType;
     /// <summary>
     /// 资源名称
     /// </summary>
@@ -52,6 +48,9 @@ public class NodeInfo {
     /// 脚本名称
     /// </summary>
     public string script;
+    [Space(10)]
+    [Tooltip("节点类型")]
+    public GlobalDefine.PanelType type = GlobalDefine.PanelType.Default;
     /// <summary>
     /// 节点控制器
     /// </summary>
@@ -156,7 +155,6 @@ public class UIManagerView : MonoBehaviour {
                         Debug.Log(classtype.ToString());
                         nodeInfo.mediator = System.Activator.CreateInstance(classtype, nodeInfo.uiControllerBase as object) as IMediator;
                     } else {
-
                         nodeInfo.mediator = null;
                     }
                 } else {
@@ -218,6 +216,8 @@ public class UIManagerView : MonoBehaviour {
             if (nodeInfo.mediator != null) {
                 AppFacade.Instance.RegisterMediator(nodeInfo.mediator);
             }
+        } else {
+            Debug.Log("<color=red>打开错误的节点，UI树种并不存在该节点</color>");
         }
     }
 

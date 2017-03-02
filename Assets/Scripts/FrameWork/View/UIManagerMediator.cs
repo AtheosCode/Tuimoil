@@ -7,7 +7,9 @@ public class UIManagerMediator : Mediator, IMediator {
     public UIManagerMediator(object viewComponent = null) : base(NAME, viewComponent) {
 
     }
-    //需要监听的消息号
+    /// <summary>
+    /// 需要监听的消息号
+    /// </summary>
     public override IEnumerable<string> ListNotificationInterests {
         get {
             List<string> list = new List<string>();
@@ -19,7 +21,10 @@ public class UIManagerMediator : Mediator, IMediator {
         }
     }
 
-    //接收消息到消息之后处理
+    /// <summary>
+    /// 接收消息到消息之后处理
+    /// </summary>
+    /// <param name="notification"></param>
     public override void HandleNotification(INotification notification) {
         string name = notification.Name;
         object vo = notification.Body;

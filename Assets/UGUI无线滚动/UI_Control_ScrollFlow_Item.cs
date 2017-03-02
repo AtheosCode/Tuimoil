@@ -10,7 +10,11 @@ public class UI_Control_ScrollFlow_Item : MonoBehaviour
     /// 缩放值
     /// </summary>
     public float sv;
-    public float v = 0;
+    [Tooltip("Position of the queue")]
+    /// <summary>
+    /// 队列位置
+    /// </summary>
+    public float positonValue = 0;
     // public float index = 0,index_value;
     private Color color;
     private Vector3 p, s;
@@ -18,14 +22,14 @@ public class UI_Control_ScrollFlow_Item : MonoBehaviour
 
     public void Drag(float value)
     {
-        v += value;
+        positonValue += value;
         p = rect.localPosition;
-        p.x = parent.GetPosition(v);
+        p.x = parent.GetPosition(positonValue);
         rect.localPosition = p;
 
-        color.a = parent.GetApa(v);
+        color.a = parent.GetApa(positonValue);
         img.color = color;
-        sv = parent.GetScale(v);
+        sv = parent.GetScale(positonValue);
         s.x = sv;
         s.y = sv;
         s.z = 1;

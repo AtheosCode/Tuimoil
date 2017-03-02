@@ -24,7 +24,7 @@ public class LoggerTest : MonoBehaviour
     void Start()
     {
         myLogger = new Logger(new MyLogHandler());
-        myLogger.Log(kTAG, "MyGameClass Start.");
+        myLogger.Log(kTAG, "MyGameClass Start.  中文测试");
         myLogger.logEnabled = false;
         myLogger.Log(kTAG, "MyGameClass Start.");
     }

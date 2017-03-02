@@ -5,9 +5,6 @@ using System.Collections.Generic;
 public class LoginMediator : Mediator, IMediator {
     public new const string NAME = "LoginMediator";
 
-    public LoginMediator(object viewComponent = null) : base(NAME, viewComponent) {
-
-    }
     //需要监听的消息号
     public override IEnumerable<string> ListNotificationInterests {
         get {
@@ -18,6 +15,9 @@ public class LoginMediator : Mediator, IMediator {
             //list.Add(NotiConst.UIMANAGER_OPEN);
             return list;
         }
+    }
+
+    public LoginMediator(object viewComponent = null) : base(NAME, viewComponent) {
     }
 
     //接收消息到消息之后处理
@@ -32,7 +32,6 @@ public class LoginMediator : Mediator, IMediator {
             case NotiConst.UIMANAGER_CREATE:
                 view.DoCreate((GlobalDefine.PanelType)vo);
                 break;
-
             case NotiConst.UIMANAGER_DESTORY:
                 view.DoDestroy((GlobalDefine.PanelType)vo);
                 break;

@@ -7,6 +7,6 @@ public class Main:MonoBehaviour{
     public void Awake() {
         DontDestroyOnLoad(this);
         appFacade = new AppFacade();
-        (Facade.GetInstance() as AppFacade).StartUp();
+        appFacade.StartUp();//(Facade.GetInstance() as AppFacade).StartUp();
     }
 }
