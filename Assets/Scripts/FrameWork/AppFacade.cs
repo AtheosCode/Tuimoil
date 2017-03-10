@@ -22,7 +22,7 @@ public class AppFacade : Facade, IFacade {
     }
     public void StartUp() {
         SendNotification(NotiConst.STARTUP);
-        SendNotification(NotiConst.UIMANAGER_OPEN, GlobalDefine.PanelType.LoginView);
+        SendNotification(NotiConst.UIMANAGER_OPEN, GlobalDefine.PanelType.Login);
         Debug.Log("测试PureMVC启动" + Time.realtimeSinceStartup);
     }
 }

@@ -10,7 +10,7 @@ public class SphereView : UIControllerBase {
     }
     public override void Open() {
         base.Open();
-        AppFacade.Instance.SendNotification(NotiConst.UIMANAGER_OPEN, GlobalDefine.PanelType.FinalView);
+        AppFacade.Instance.SendNotification(NotiConst.UIMANAGER_OPEN, GlobalDefine.PanelType.Final);
     }
     public override void Return() {
         transform.DOScale(new Vector3(0, 0, 0), 2.5f).OnComplete(new TweenCallback(base.Return));

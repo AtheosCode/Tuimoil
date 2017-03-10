@@ -326,60 +326,60 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_nodeInfoList:
-  - mediatorName: 
+  - isCache: 1
+    isCoexist: 0
+    isControlNode: 0
+    isCover: 0
+    isStack: 0
+    mediatorName: 
     parentType: 0
+    resource: 
+    script: 
     type: 1
-    isCache: 1
+    uiControllerBase: {fileID: 0}
+  - isCache: 1
     isCoexist: 0
     isControlNode: 0
     isCover: 0
     isStack: 0
+    mediatorName: LoginMediator
+    parentType: 1
     resource: 
     script: 
-    uiControllerBase: {fileID: 0}
-  - mediatorName: LoginMediator
-    parentType: 1
     type: 6
-    isCache: 1
+    uiControllerBase: {fileID: 0}
+  - isCache: 1
     isCoexist: 0
     isControlNode: 0
     isCover: 0
     isStack: 0
+    mediatorName: FPSMediator
+    parentType: 6
     resource: 
     script: 
-    uiControllerBase: {fileID: 0}
-  - mediatorName: FPSMediator
-    parentType: 6
     type: 7
-    isCache: 1
+    uiControllerBase: {fileID: 0}
+  - isCache: 1
     isCoexist: 0
     isControlNode: 0
     isCover: 0
     isStack: 0
-    resource: 
-    script: 
-    uiControllerBase: {fileID: 0}
-  - mediatorName: SphereMediator
+    mediatorName: SphereMediator
     parentType: 6
+    resource: 
+    script: 
     type: 8
-    isCache: 1
-    isCoexist: 0
-    isControlNode: 0
-    isCover: 0
-    isStack: 0
-    resource: 
-    script: 
     uiControllerBase: {fileID: 0}
-  - mediatorName: FinalMediator
-    parentType: 1
-    type: 9
-    isCache: 1
+  - isCache: 1
     isCoexist: 0
     isControlNode: 0
     isCover: 0
     isStack: 0
+    mediatorName: FinalMediator
+    parentType: 1
     resource: 
     script: 
+    type: 9
     uiControllerBase: {fileID: 0}
 --- !u!1 &1276181397
 GameObject:

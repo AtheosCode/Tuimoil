@@ -10,10 +10,10 @@ public class GlobalDefine
         RootNode,
         //节点2
         node_1 = 5,
-        LoginView,
-        FPSView,
-        SphereView,
-        FinalView,
+        Login,
+        FPS,
+        Sphere,
+        Final,
     }
     public enum GlobalEvent
     {

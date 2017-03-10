@@ -1,6 +1,7 @@
 ﻿using PureMVC.Interfaces;
 using PureMVC.Patterns;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class LoginMediator : Mediator, IMediator {
     public new const string NAME = "LoginMediator";

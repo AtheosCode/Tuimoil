@@ -35,22 +35,16 @@ public class NodeInfo {
     /// </summary>
     public IMediator mediator;
     [Space(10)]
-    [Tooltip("中介器类名")]
-    public string mediatorName;
-    [Space(10)]
     [Tooltip("父节点类型")]
     public GlobalDefine.PanelType parentType;
     /// <summary>
-    /// 资源名称
+    /// 资源名称或路径
     /// </summary>
     public string resource;
-    /// <summary>
-    /// 脚本名称
-    /// </summary>
-    public string script;
     [Space(10)]
     [Tooltip("节点类型")]
     public GlobalDefine.PanelType type = GlobalDefine.PanelType.Default;
+    [NonSerialized]
     /// <summary>
     /// 节点控制器
     /// </summary>
@@ -142,23 +136,34 @@ public class UIManagerView : MonoBehaviour {
                 if (rectTransform != null) {
                     rectTransform.SetParent(transform, false);
                 }
+                Type classtype = Type.GetType(nodeInfo.type.ToString() + "View");
                 UIControllerBase controller = ui.GetComponent<UIControllerBase>();
+
                 if (controller != null) {
+                    if (controller.GetType().Equals(classtype)) {
+                        ui.AddComponent(classtype);
+                        controller = ui.GetComponent<UIControllerBase>();
+                        controller.IsCache = nodeInfo.isCache;
+                        controller.Create();
+                    } else {
+                        Debug.Log("已经存在这个控制器了");
+                    }
+                } else {
+                    ui.AddComponent(classtype);
+                    controller = ui.GetComponent<UIControllerBase>();
                     controller.IsCache = nodeInfo.isCache;
-                    //controller.MediatorName
                     controller.Create();
                 }
                 nodeInfo.uiControllerBase = controller;
-                if (!string.IsNullOrEmpty(nodeInfo.mediatorName) && nodeInfo.mediatorName.Length > 8) {
-                    Type classtype = Type.GetType(nodeInfo.mediatorName);
+                if (!nodeInfo.isControlNode) {
+                    classtype = Type.GetType(nodeInfo.type.ToString() + "Mediator");
                     if (classtype != null) {
                         Debug.Log(classtype.ToString());
                         nodeInfo.mediator = System.Activator.CreateInstance(classtype, nodeInfo.uiControllerBase as object) as IMediator;
                     } else {
                         nodeInfo.mediator = null;
+                        Debug.Log("中继器<color=yellow>" + nodeInfo.type.ToString() + "Mediator</color> is not exists");
                     }
-                } else {
-                    nodeInfo.mediator = null;
                 }
             }
         } else {
@@ -276,12 +281,8 @@ public class UIManagerView : MonoBehaviour {
         for (int i = 0; i < m_nodeInfoList.Count; i++) {
             NodeInfo currentNode = m_nodeInfoList[i];
             if (!currentNode.isControlNode) {
-                currentNode.resource = currentNode.type.ToString();
-                //if (currentNode.resource == null) {
-                //}
-                currentNode.script = currentNode.type.ToString();
-                //if (currentNode.script == null) {
-                //}
+                //Atheos 此处修改为+ "prefab" 最好
+                currentNode.resource = currentNode.type.ToString() + "View";
             }
             m_nodeInfoDic.Add(currentNode.type, currentNode);
             if (currentNode.type != GlobalDefine.PanelType.RootNode) {
