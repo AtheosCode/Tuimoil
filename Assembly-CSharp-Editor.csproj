@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
+     <Compile Include="Assets\Editor\ReplaceAtlas.cs" />
      <Compile Include="Assets\Scripts\NGUI\Examples\Scripts\InventorySystem\Editor\InvDatabaseInspector.cs" />
      <Compile Include="Assets\Scripts\NGUI\Examples\Scripts\InventorySystem\Editor\InvFindItem.cs" />
      <Compile Include="Assets\Scripts\NGUI\Scripts\Editor\ActiveAnimationEditor.cs" />
